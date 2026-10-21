@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Para Mi Princesa ❤️</title>
+  <link rel="icon" type="image/jpeg" href="img/snoopy-corazon.jpg" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="bg-stars" aria-hidden="true"></div>
+  <div class="bg-orb orb-1" aria-hidden="true"></div>
+  <div class="bg-orb orb-2" aria-hidden="true"></div>
+  <div class="bg-orb orb-3" aria-hidden="true"></div>
+  <canvas id="fx"></canvas>
+
+  <div class="intro" id="intro">
+    <div class="intro-card glass">
+      <p class="eyebrow">Una sorpresa hecha con amor</p>
+      <h1>Feliz cumpleaños, <span id="heroName">Princesa</span> ❤️</h1>
+      <p class="lead">
+        Ojala te guste mi vida, lo hice con amor
+        .
+      </p>
+      <div class="intro-actions">
+        <button class="btn primary" id="startBtn">Empezar el viaje</button>
+        <button class="btn ghost" id="previewBtn">Ver un adelanto</button>
+      </div>
+      <p class="small-note">Tip: tocá las tarjetas y explorá cada sección ❤️</p>
+
+    </div>
+  </div>
+
+  <header class="topbar">
+    <div class="brand">
+      <span class="brand-mark">♥</span>
+      <div>
+        <strong>Para <span id="brandName">Mi Bebe</span></strong>
+        <small id="brandSub">Un regalo interactivo</small>
+      </div>
+    </div>
+
+    <nav class="nav">
+      <a href="#contador">Tiempo</a>
+      <a href="#carta">Carta</a>
+      <a href="#fotos">Fotos</a>
+      <a href="#final">Final</a>
+    </nav>
+
+  </header>
+
+  <main class="app">
+    <section class="hero glass reveal">
+      <div class="hero-copy">
+        <h2>FELIZ PUMPE MIAMORR!!!</h2>
+        <p>
+          Te hice un detallito para ti.
+        </p>
+        <div class="hero-stats">
+          <div class="stat">
+            <span id="daysTogether">0</span>
+            <small>días juntos</small>
+          </div>
+          <div class="stat">
+            <span id="heartsCount">∞</span>
+            <small>razones para amarte</small>
+          </div>
+        </div>
+      </div>
+      <div class="hero-snoopy">
+        <img src="img/snoopy-tortita.png" alt="Snoopy con tortita de cumpleaños" class="snoopy-tortita">
+      </div>
+    </section>
+
+
+
+    <section class="counter section glass reveal" id="contador">
+      <div class="section-head left">
+        <h3>Cuánto tiempo hace que empezó todo</h3>
+      </div>
+
+
+      <div class="countdown" id="countdown">
+        <div class="clock">
+          <span id="years">0</span><small>años</small>
+        </div>
+        <div class="clock">
+          <span id="months">0</span><small>meses</small>
+        </div>
+        <div class="clock">
+          <span id="days">0</span><small>días</small>
+        </div>
+        <div class="clock">
+          <span id="hours">0</span><small>horas</small>
+        </div>
+        <div class="clock">
+          <span id="minutes">0</span><small>min</small>
+        </div>
+        <div class="clock">
+          <span id="seconds">0</span><small>seg</small>
+        </div>
+      </div>
+    </section>
+
+    <section class="timeline section reveal" id="historia">
+      <div class="section-head">
+        <h3>Momentos ninos</h3>
+      </div>
+
+      <div class="timeline-list" id="timelineList"></div>
+    </section>
+
+    <section class="letter section glass reveal" id="carta">
+      <div class="section-head left section-head-with-icon">
+        <div>
+          <h3>Una carta para vos</h3>
+        </div>
+        <img src="img/snoopy-carta.png" alt="Snoopy con cartita" class="section-snoopy letter-snoopy">
+      </div>
+
+      <div class="letter-paper">
+        <p class="letter-date" id="letterDate">Hoy</p>
+        <h4>Mi amor:</h4>
+        <p id="typedLetter" class="typed"></p>
+      </div>
+    </section>
+
+    <section class="playlist section reveal">
+      <div class="section-head left section-head-with-icon">
+        <div>
+          <h3>Temitas q me recuerdan a vos</h3>
+          <p>Tocá una tarjeta y escuchá la canción.</p>
+        </div>
+        <img src="img/snoopy-musica.png" alt="Snoopy con música" class="section-snoopy music-snoopy">
+      </div>
+
+      <div class="playlist-layout">
+        <div class="song-list" id="songList"></div>
+        <aside class="player glass">
+          <div class="player-disc" id="playerDisc">♥</div>
+          <div class="player-meta">
+            <p class="eyebrow">Reproduciendo</p>
+            <h4 id="playerTitle">—</h4>
+            <p id="playerArtist">—</p>
+          </div>
+          <p class="player-note" id="playerNote">Elegí una canción para ver la dedicatoria.</p>
+
+          <!-- Control de volumen con Snoopy -->
+          <div class="volume-control">
+            <div class="snoopy-volume">
+              <img src="img/snoopy.png" alt="Snoopy" class="snoopy-face" id="snoopyFace">
+
+              <div class="volume-slider-wrap">
+                <input type="range" id="volumeSlider" min="0" max="100" value="80" class="volume-slider">
+                <div class="volume-labels">
+                  <span>🔇</span>
+                  <span id="volumeValue">80%</span>
+                  <span>🔊</span>
+                </div>
+              </div>
+            </div>
+            <p class="snoopy-text"></p>
+          </div>
+
+          <button class="btn primary wide" id="nextSong">Siguiente canción</button>
+        </aside>
+
+      </div>
+    </section>
+
+    <section class="gallery section glass reveal" id="fotos">
+      <div class="section-head">
+        <h3>Nuestros recuerdos</h3>
+      </div>
+
+      <div class="gallery-grid" id="galleryGrid"></div>
+    </section>
+
+    <section class="reasons section glass reveal">
+      <div class="section-head left">
+        <h3>Razones que te hacen única</h3>
+      </div>
+
+
+      <div class="reason-controls">
+        <button class="btn ghost" id="reasonPrev">Anterior</button>
+        <button class="btn primary" id="reasonShuffle">Otra razón</button>
+        <button class="btn ghost" id="reasonNext">Siguiente</button>
+      </div>
+
+      <div class="reason-card" id="reasonCard">
+        <p class="reason-index" id="reasonIndex">01</p>
+        <h4 id="reasonTitle">—</h4>
+        <p id="reasonText">—</p>
+      </div>
+    </section>
+
+    <section class="final section reveal" id="final">
+      <div class="final-card glass">
+        <p class="eyebrow">Final</p>
+        <h3>Gracias por existir princesa, te amo con todo mi corazon</h3>
+        <p>
+          q tengas un feliz pumpe y espero q te haya gustado.
+        
+        </p>
+        <div class="final-actions">
+          <button class="btn primary" id="restartBtn">Otra ve</button>
+          <button class="btn ghost" id="confettiBtn">Mas Papelitos</button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div class="lightbox hidden" id="lightbox">
+    <button class="lightbox-close" id="closeLightbox">×</button>
+    <img id="lightboxImage" alt="" />
+    <p id="lightboxCaption"></p>
+  </div>
+
+  <template id="timelineTemplate">
+    <article class="milestone glass">
+      <span class="milestone-date"></span>
+      <h4 class="milestone-title"></h4>
+      <p class="milestone-text"></p>
+    </article>
+  </template>
+
+  <template id="songTemplate">
+
+    <button class="song-card glass" type="button">
+      <div>
+        <strong></strong>
+        <small></small>
+      </div>
+      <span>▶</span>
+    </button>
+  </template>
+
+  <template id="galleryTemplate">
+    <button class="photo-card glass" type="button">
+      <span class="photo-label"></span>
+      <strong></strong>
+      <p></p>
+    </button>
+  </template>
+
+  <script src="script.js"></script>
+</body>
+</html>
